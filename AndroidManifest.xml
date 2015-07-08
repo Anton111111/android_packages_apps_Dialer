@@ -33,6 +33,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
     <uses-permission android:name="android.permission.NFC" />
+    <!-- Disable incallui -->        
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
@@ -290,6 +291,7 @@
              from outside the phone app; instead, it's either launched by
              the OutgoingCallBroadcaster (for outgoing calls), or as the
              fullScreenIntent of a notification (for incoming calls.) -->
+        <!-- Disable incallui -->        
         <activity android:name="com.android.incallui.InCallActivity"
                   android:theme="@style/Theme.InCallScreen"
                   android:label="@string/phoneAppLabel"
@@ -300,12 +302,14 @@
                   android:process="com.android.incallui"
                   android:screenOrientation="nosensor" >
         </activity>
-
+        
+        <!-- Disable incallui -->
         <service android:name="com.android.services.callrecorder.CallRecorderService"
                  android:process="com.android.incallui">
         </service>
 
         <!-- BroadcastReceiver for receiving Intents from Notification mechanism. -->
+        <!-- Disable incallui -->
         <receiver android:name="com.android.incallui.InCallApp$NotificationBroadcastReceiver"
                   android:exported="false"
                   android:process="com.android.incallui">
@@ -313,7 +317,8 @@
                 <action android:name="com.android.incallui.ACTION_HANG_UP_ONGOING_CALL" />
             </intent-filter>
         </receiver>
-
+        
+        <!-- Disable incallui -->
         <service android:name="com.android.incallui.InCallServiceImpl"
                  android:process="com.android.incallui"
                  android:permission="android.permission.BIND_INCALL_SERVICE" >

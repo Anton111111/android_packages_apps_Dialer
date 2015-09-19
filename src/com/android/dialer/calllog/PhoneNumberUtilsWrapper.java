@@ -54,7 +54,10 @@ public class PhoneNumberUtilsWrapper {
      * mock-out this, it is not a static method.
      */
     public boolean isVoicemailNumber(PhoneAccountHandle accountHandle, CharSequence number) {
-        if (number == null) {
+        /** get from https://android.googlesource.com/platform/packages/apps/Dialer/+/lollipop-release/src/com/android/dialer/calllog/PhoneNumberUtilsWrapper.java */
+        return number!= null && PhoneNumberUtils.isVoiceMailNumber(number.toString());
+
+        /*if (number == null) {
             return false;
         }
 
@@ -68,7 +71,7 @@ public class PhoneNumberUtilsWrapper {
 
         final String actualVmNumber = PhoneNumberUtils.extractNetworkPortionAlt(vmNumber);
         return !TextUtils.isEmpty(actualVmNumber)
-                && PhoneNumberUtils.compare(number.toString(), actualVmNumber);
+                && PhoneNumberUtils.compare(number.toString(), actualVmNumber);*/
     }
 
     /**
